@@ -1,0 +1,283 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.indi.azazel</groupId>
+  <artifactId>ssm_framework</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ssm_framework Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <!-- 定义属性 ,可以在后面通过${属性名}使用 -->
+  <properties>
+    <!-- 项目编译的源码字符编码 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- 编译后的字符编码 -->
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- 定义编辑器的java版本 -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <!-- ********************基本依赖版本号******************** -->
+    <!-- java ee版本号 -->
+    <javaee.version>7.0</javaee.version>
+
+    <!-- mysql驱动版本号 -->
+    <mysql-driver.version>5.1.44</mysql-driver.version>
+
+    <!--junit版本号-->
+    <junit.version>4.12</junit.version>
+
+    <!--fastjson依赖包版本 -->
+    <fastjson.version>1.2.39</fastjson.version>
+
+    <!-- jstl版本号 -->
+    <jstl.version>1.2</jstl.version>
+
+    <!-- gson版本号 -->
+    <gson.version>2.8.2</gson.version>
+
+    <!-- ********************据库连接池依赖版本号******************** -->
+    <!-- c3p0数据库连接池依赖包版本 -->
+    <c3p0.version>0.9.1.2</c3p0.version>
+
+    <!--  tomcat-jdbc数据库连接池依赖包版本 -->
+    <tomcat-jsbc.version>9.0.1</tomcat-jsbc.version>
+
+    <!-- ********************mybatis依赖版本号******************** -->
+    <!-- mybatis版本号 -->
+    <mybatis.version>3.4.5</mybatis.version>
+    <!-- cglib-nodep版本号 -->
+    <cglib-nodep.version>3.2.5</cglib-nodep.version>
+
+    <!-- asm版本号 -->
+    <asm.version>3.3.1</asm.version>
+
+    <!-- ********************spring依赖版本号******************** -->
+    <!-- spring版本号 -->
+    <spring.version>5.0.0.RELEASE</spring.version>
+
+    <!-- spring和mybatis整合的依赖包 -->
+    <spring-mybatis.plugin.version>1.3.1</spring-mybatis.plugin.version>
+
+    <!-- spring mvc相关操作 -->
+    <!-- jackson版本号 -->
+    <jackson.version>2.9.2</jackson.version>
+
+    <!-- commons-fileupload版本号 -->
+    <commons-fileupload.version>1.3.3</commons-fileupload.version>
+
+    <!-- commons-io版本号 -->
+    <commons-io.version>2.6</commons-io.version>
+
+    <!-- ********************log4j日志相关依赖版本号******************** -->
+    <!-- log4j日志包版本号 -->
+    <slf4j.version>1.7.18</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+  </properties>
+
+  <!-- 依赖管理 -->
+  <dependencies>
+    <!--  -->
+    <!--<dependency>-->
+    <!--<groupId></groupId>-->
+    <!--<artifactId></artifactId>-->
+    <!--<version>${}</version>-->
+    <!--</dependency>-->
+    <!-- ********************基本依赖******************** -->
+    <!-- jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+    <!-- javaee -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${javaee.version}</version>
+    </dependency>
+    <!-- mysql -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-driver.version}</version>
+    </dependency>
+    <!-- SQLite -->
+    <!--<dependency>-->
+      <!--<groupId>org.wisdom-framework</groupId>-->
+      <!--<artifactId>sqlite-jdbc</artifactId>-->
+      <!--<version>3.8.7_1</version>-->
+    <!--</dependency>-->
+    <!-- junit4 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+
+    <!-- fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+
+    <!-- gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
+
+    <!-- ********************据库连接池******************** -->
+    <!-- c3p0 -->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>${c3p0.version}</version>
+    </dependency>
+
+    <!-- ********************mybatis相关依赖******************** -->
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <!-- CGLIB&asm 用于mybaitis缓存以及spring中的一些依赖 -->
+    <!-- cglib-nodep -->
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib-nodep</artifactId>
+      <version>${cglib-nodep.version}</version>
+    </dependency>
+    <!-- asm -->
+    <dependency>
+      <groupId>asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>${asm.version}</version>
+    </dependency>
+    <!-- ********************spring******************** -->
+    <!-- 一、spring核心依赖 -->
+    <!-- spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-beans -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-context-support -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- 二、spring aop相关依赖 -->
+    <!-- spring-aop -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-aspects -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- 三、spring test相关依赖-->
+    <!-- spring-test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- 四、spring的数据库操作需求的依赖包-->
+    <!-- spring-oxm -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-oxm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-tx -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- 五、mybatis/spring整合包依赖 -->
+    <!-- mybatis-spring -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>${spring-mybatis.plugin.version}</version>
+    </dependency>
+    <!-- 六、spring mvc 依赖库 -->
+    <!-- spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- jackson（JSON操作依赖） -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <!-- commons-fileupload（文件上传相关依赖） -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${commons-fileupload.version}</version>
+    </dependency>
+    <!-- commons-io（文件上传相关依赖） -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <!-- ********************log4j日志相关依赖******************** -->
+    <!-- log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <!-- slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <!-- slf4j-log4j12 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>ssm_framework</finalName>
+  </build>
+</project>
